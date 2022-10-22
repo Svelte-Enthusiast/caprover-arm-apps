@@ -8,7 +8,6 @@ services:
                 - RUN apk add --no-cache unzip openssh
                 - RUN apk add --no-cache wget
                 - RUN apk add --no-cache
-                - RUN apk add --no-cache touch
                 - ADD https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar /server.jar
                 - EXPOSE 25565
                 - RUN TOUCH eula.txt
