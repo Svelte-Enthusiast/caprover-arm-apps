@@ -7,7 +7,7 @@ services:
                 - FROM alpine:3.16.2
                 - RUN apk add --no-cache unzip openssh
                 - RUN apk add --no-cache wget
-                - RUN apk add --no-cache openjdk11
+                - RUN apk add --no-cache openjdk17
                 - ADD https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar /server.jar
                 - EXPOSE 25565
                 - CMD java -jar /server.jar nogui
