@@ -8,10 +8,17 @@ services:
                 - RUN apk add --no-cache unzip openssh
                 - RUN apk add --no-cache wget
                 - RUN apk add --no-cache openjdk11
-                - RUN wget https://launcher.mojang.com/v1/objects/0d9e5b2b1b7b6e3b0c2c1d7d3d1b0b2f9bfb1c4b/server.jar
+                - ADD https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar /server.jar
                 - EXPOSE 25565
-                - CMD ["java", "-Xmx1024M", "-Xms1024M", "-jar", "server.jar", "nogui"]
-
+                - [
+                      'CMD',
+                      'java',
+                      '-Xmx1024M',
+                      '-Xms1024M',
+                      '-jar',
+                      '/server.jar',
+                      'nogui',
+                  ]
             containerHttpPort: '25565'
         volumes:
             - '$$cap_appname-data:/minecraft'
