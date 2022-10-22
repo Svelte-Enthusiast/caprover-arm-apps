@@ -8,11 +8,11 @@ services:
                 - RUN apk add --no-cache unzip openssh
                 - RUN apk add --no-cache wget
                 - RUN apk add --no-cache openjdk17
-                - RUN apk add --no-cache util-linux
                 - ADD https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar /server.jar
                 - EXPOSE 25565
-                - RUN TOUCH eula.txt
-                - RUN echo "eula=true" > eula.txt
+                - RUN echo "" > eula.txt
+                - RUN echo "eula=true" >> eula.txt
+                - RUN echo "server-port=25565" >> server.properties
                 - CMD java -jar /server.jar nogui
             containerHttpPort: '25565'
         volumes:
