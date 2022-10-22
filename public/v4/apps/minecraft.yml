@@ -13,7 +13,8 @@ services:
                 - CMD java -jar /server.jar nogui
             containerHttpPort: '25565'
         volumes:
-            - '$$cap_appname-data:/minecraft'
+            - '$$cap_appname-data:/data'
+        restart: 'on-failure'
 
 caproverOneClickApp:
     instructions:
